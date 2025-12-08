@@ -8,7 +8,7 @@ import DrawerSidebar from './drawer-sidebar'
 
 const Header = () => {
   return (
-    <div className='w-full flex items-center justify-between bg-gray-800 border-b border-gray-500/20 px-2 md:px-3 py-2.5'>
+    <div className='w-full flex items-center justify-between bg-gray-800 border-b border-gray-500/20 px-2 sm:px-4 md:px-3 py-2.5'>
       <div className='block md:hidden relative z-50'>
         <DrawerSidebar />
       </div>
