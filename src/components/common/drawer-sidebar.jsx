@@ -26,7 +26,7 @@ const DrawerSidebar = () => {
 
       <div
         className={cn(
-          "fixed top-0 left-0 h-screen transition-transform duration-300 z-50",
+          "fixed top-0 left-0 h-screen backdrop-blur-sm transition-transform duration-300 z-50",
           showDrawerSidebar ? "translate-x-0" : "-translate-x-full"
         )}
       >

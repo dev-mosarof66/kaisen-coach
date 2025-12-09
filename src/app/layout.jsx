@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Takteeki App",
+  title: "Takteeki AI",
   description: "Takteeki App for managing your tasks",
 };
 
@@ -33,10 +33,10 @@ export default function RootLayout({ children }) {
           </div>
           <div className="w-full h-screen overflow-y-scroll scrollbar-hidden">
             <Header />
-            <div className="w-full flex-1">
+            <div className="w-full flex-1 h-[89%] overflow-auto scrollbar-hidden">
               {children}
             </div>
-       
+            <AIAssistant />
           </div>
         </div>
       </body>

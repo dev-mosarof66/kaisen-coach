@@ -1,10 +1,9 @@
+import PlayersView from '@/views/players-view'
 import React from 'react'
 
 const PlayersPage = () => {
     return (
-        <div>
-            <p>Players Page</p>
-        </div>
+        <PlayersView />
     )
 }
 

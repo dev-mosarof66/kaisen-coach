@@ -2,6 +2,9 @@ import React from "react"
 import { Card } from "../ui/card"
 import { Button } from "../ui/button"
 import { FaPlus } from "react-icons/fa"
+import { OutlineButton } from "../common/button"
+import { cn } from "@/lib/utils"
+import { constClassName } from "@/constants/constants"
 
 const WelcomeCard = () => {
     return (
@@ -19,18 +22,17 @@ const WelcomeCard = () => {
 
                 <div className="w-full flex items-center gap-4">
 
-                    <Button className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white">
+                    <Button className={cn("flex items-center gap-2", constClassName.primaryButton)}>
                         <FaPlus className="text-sm" />
                         Add Match
                     </Button>
 
                     <Button
                         variant="outline"
-                        className="border-gray-600 bg-transparent hover:bg-white/5 text-white"
+                        className={cn(constClassName.outlineButton)}
                     >
                         View Schedule
                     </Button>
-
                 </div>
             </div>
         </Card>
