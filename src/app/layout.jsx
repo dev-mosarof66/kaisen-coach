@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Takteeki App",
+  title: "Takteeki AI",
   description: "Takteeki App for managing your tasks",
 };
 

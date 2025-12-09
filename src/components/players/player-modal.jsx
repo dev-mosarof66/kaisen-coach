@@ -2,6 +2,11 @@
 import React from 'react';
 import Image from 'next/image';
 import { FaTimes } from 'react-icons/fa';
+import LiverPool from '../../../public/liverpool.png'
+import Argentian from '../../../public/argentina.png'
+import { Button } from '../ui/button';
+import { MarketValueChart } from './market-value-chart';
+import { TrendingUp } from 'lucide-react';
 
 const PlayerModal = ({ player, onClose }) => {
     if (!player) return null;
@@ -18,9 +23,9 @@ const PlayerModal = ({ player, onClose }) => {
                     <p>Close</p>
                 </div>
 
-                <div className='w-full h-full px-4 overflow-y-scroll scrollbar-hidden'>
+                <div className='w-full h-full flex flex-col gap-6 px-4 overflow-y-scroll scrollbar-hidden'>
                     {/* Player Image */}
-                    <div className="w-full flex justify-center mb-4">
+                    <div className="w-full flex justify-center my-4">
                         <Image
                             src={player.image.src}
                             alt={player.name}
@@ -31,77 +36,116 @@ const PlayerModal = ({ player, onClose }) => {
                     </div>
 
                     {/* Player Name & Position */}
-                    <div className="text-center mb-4">
+                    <div className="w-full flex flex-col gap-3">
                         <h2 className="text-2xl font-bold">{player.name}</h2>
-                        <span className="px-3 py-1 rounded-full bg-purple-600/30 text-purple-300 text-sm font-semibold">
-                            {player.position} ({player.position})
-                        </span>
+                        <div className='w-full flex gap-2'>
+                            <p className="px-4 py-1 rounded-full bg-blue-600/30 text-purple-300 text-sm font-semibold">
+                                Forward
+                            </p>
+                            <p className="px-4 py-1 rounded-full bg-gray-600/30 text-purple-100 text-sm font-semibold">
+                                {player.position}
+                            </p>
+                        </div>
+
                     </div>
 
-                    {/* Stats */}
-                    <div className="grid grid-cols-2 gap-4 text-sm mb-4">
-                        <div>
-                            <p className="text-gray-400">Games Played</p>
-                            <p className="font-medium">{player.gamesPlayed || 36}</p>
+
+                    {/* goal played + scored  */}
+                    <div className="w-full flex items-center gap-4">
+                        <div className='flex items-center gap-2'>
+                            <p className="font-medium text-2xl sm:text-3xl">{player.gamesPlayed || 36}</p>
+                            <p className="text-gray-400">games Played</p>
                         </div>
-                        <div>
-                            <p className="text-gray-400">Goals</p>
-                            <p className="font-medium">{player.goals || 25}</p>
-                        </div>
-                        <div>
-                            <p className="text-gray-400">Assists</p>
-                            <p className="font-medium">{player.assists || 10}</p>
-                        </div>
-                        <div>
-                            <p className="text-gray-400">Team</p>
-                            <p className="font-medium">{player.team}</p>
+                        <div className='size-1.5 rounded-full bg-gray-400' />
+                        <div className='flex items-center gap-2'>
+                            <p className="font-medium text-2xl sm:text-3xl">{player.goals || 25}</p>
+                            <p className="text-gray-400">goals scored</p>
                         </div>
                     </div>
 
-                    {/* Joined info */}
-                    <div className="flex justify-between text-gray-400 text-xs mb-4">
-                        <span>Joined Team: {player.joined || "08/10/2021"}</span>
-                        <span>Club: {player.club}</span>
+                    {/* teams owned  */}
+                    <div className='w-full flex items-center gap-4'>
+                        <div className='flex items-center gap-2'>
+                            <Image src={LiverPool} width={25} height={25} alt='liver-pool' />
+                            <p className='text-lg'>Paris Saint-Germain</p>
+                        </div>
+                        <div className='flex items-center gap-2'>
+                            <Image src={Argentian} width={25} height={25} alt='liver-pool' />
+                            <p className='text-lg'>Argentina</p>
+                        </div>
+                    </div>
+
+                    <div className='w-full border border-gray-600' />
+
+                    <div className='w-full flex flex-col gap-3'>
+                        {/* Joined info */}
+                        <div className="w-full flex justify-between text-gray-400 text-base">
+                            <p className='uppercase'>Joined Team</p>
+                            <p>{player.joined || "08/10/2021"}</p>
+                        </div>
+                        {/* Games */}
+                        <div className="w-full flex justify-between text-gray-400 text-base">
+                            <p className='uppercase'>GAMES</p>
+                            <p>{player.games || 36} total</p>
+                        </div>
+                        {/* Goals */}
+                        <div className="w-full flex justify-between text-gray-400 text-base">
+                            <p className='uppercase'>GOALS</p>
+                            <p>{player.games || 25} total</p>
+                        </div>
+                        {/* Assists */}
+                        <div className="w-full flex justify-between text-gray-400 text-base">
+                            <p className='uppercase'>ASSISTS</p>
+                            <p>{player.games || 10} total</p>
+                        </div>
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex gap-2 mb-4">
-                        <button className="flex-1 bg-blue-600 hover:bg-blue-700 rounded-lg py-2 text-white font-semibold">
+                    <div className="w-full flex flex-col gap-3 pt-8">
+                        <Button className="flex-1 bg-blue-600 hover:bg-blue-700 rounded-lg py-2 text-white font-semibold">
                             View Profile
-                        </button>
-                        <button className="flex-1 bg-gray-700 hover:bg-gray-600 rounded-lg py-2 text-white font-semibold">
-                            Switch Team
-                        </button>
-                        <button className="flex-1 bg-red-600 hover:bg-red-700 rounded-lg py-2 text-white font-semibold">
-                            Remove
-                        </button>
+                        </Button>
+                        <div className='w-full flex items-center justify-between gap-3'>
+                            <Button className="flex-1 border border-gray-500 bg-transparent hover:bg-gray-600/20 rounded-lg py-2 text-blue-600 font-semibold">
+                                Switch Team
+                            </Button>
+                            <Button className="flex-1 bg-red-500 hover:bg-red-600 rounded-lg py-2 text-white font-semibold">
+                                Removed
+                            </Button>
+                        </div>
                     </div>
 
+                    <div className='w-full border border-gray-600' />
+
+
                     {/* Market Value */}
-                    <div className="mb-4">
-                        <p className="text-gray-400 text-sm mb-1">Market Value</p>
-                        <p className="text-green-400 font-medium text-lg">{player.value || "$80M"}</p>
-                        {/* Placeholder chart */}
-                        <div className="w-full h-24 bg-gray-800 rounded-lg mt-2 flex items-end gap-1 p-1">
-                            {[100, 80, 80, 70, 60, 50].map((val, i) => (
-                                <div
-                                    key={i}
-                                    className="bg-blue-500 rounded-sm"
-                                    style={{ height: `${val / 2}px`, flex: 1 }}
-                                ></div>
-                            ))}
+                    <div className="w-full flex flex-col gap-2">
+                        <div className='w-full flex items-center justify-between'>
+                            <p className="text-gray-300">Market Value</p>
+                            <p className="text-green-400 font-medium">{player.value || "$80M"}</p>
                         </div>
-                        <p className="text-green-500 text-xs mt-1">+15% compared to last month</p>
+                        {/* Placeholder chart */}
+                        <div className='w-full pt-2'>
+                            <MarketValueChart />
+                        </div>
+                        <div className='w-full flex items-center gap-3'>
+                            <p className='text-green-500 text-sm flex items-center gap-1'>
+                                <TrendingUp className="h-4 w-4" />
+                                +15%</p>
+                            <p className="text-gray-400">
+                                compared to last month
+                            </p>
+                        </div>
                     </div>
 
                     {/* Bottom Actions */}
-                    <div className="flex gap-2">
-                        <button className="flex-1 bg-gray-700 hover:bg-gray-600 rounded-lg py-2 text-white font-semibold">
+                    <div className="flex gap-2 pb-20">
+                        <Button className="flex-1 bg-transparent border border-gray-600 hover:bg-gray-600/10 rounded-lg py-2 text-white font-semibold">
                             Assign Task
-                        </button>
-                        <button className="flex-1 bg-gray-700 hover:bg-gray-600 rounded-lg py-2 text-white font-semibold">
+                        </Button>
+                 <Button className="flex-1 bg-transparent border border-gray-600 hover:bg-gray-600/10 rounded-lg py-2 text-white font-semibold">
                             Add Note
-                        </button>
+                        </Button>
                     </div>
                 </div>
             </div>

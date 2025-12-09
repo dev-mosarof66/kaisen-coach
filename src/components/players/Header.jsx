@@ -1,10 +1,13 @@
+'use client'
 import React from 'react'
 import { Button } from '../ui/button'
 import { FaPlus } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
 import { constClassName } from '@/constants/constants'
+import { useRouter } from 'next/navigation'
 
 const Header = () => {
+    const router = useRouter()
     return (
         <div className="w-full flex flex-col gap-4 sm:flex-row md:flex-col xl:flex-row items-center justify-between">
 
@@ -23,7 +26,7 @@ const Header = () => {
                     className={cn("items-center gap-2", constClassName.outlineButton)} >
                     Import Players
                 </Button>
-                <Button className={cn("items-center gap-2", constClassName.primaryButton)}>
+                <Button onClick={() => router.push("/add-player")} className={cn("items-center gap-2", constClassName.primaryButton)}>
                     <FaPlus className="text-sm" />
                     Add Players
                 </Button>
