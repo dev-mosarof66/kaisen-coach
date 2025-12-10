@@ -1,8 +1,7 @@
 'use client'
+import React from 'react'
 import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/calendar'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import React, { useState } from 'react'
 
 
 const activityData = [
@@ -14,7 +13,6 @@ const activityData = [
 ];
 
 const AttendenceLogs = () => {
-    const [date, setDate] = useState(new Date())
 
     return (
         <Card className="w-full col-span-2 bg-gray-800 border border-gray-700 text-white rounded-2xl p-4">

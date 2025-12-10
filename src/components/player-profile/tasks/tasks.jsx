@@ -5,6 +5,7 @@ import ProfileStatCard from '../profile-stat-card'
 import { CiCircleCheck, CiClock2 } from 'react-icons/ci';
 import { SlBadge } from 'react-icons/sl';
 import { IoCalendarNumberOutline } from 'react-icons/io5';
+import TaskList from './task-list';
 
 
 const stats = [
@@ -24,7 +25,7 @@ const stats = [
         id: 3,
         label: "Current Streak",
         count: "12 days",
-        icon: SlBadge 
+        icon: SlBadge
     },
     {
         id: 4,
@@ -42,7 +43,7 @@ const colors = [
 ]
 
 
-const Tasks = ({selectedTab}) => {
+const Tasks = ({ selectedTab }) => {
     return (
         <div>
             {
@@ -50,7 +51,7 @@ const Tasks = ({selectedTab}) => {
                 <div className='w-full flex flex-col gap-4'>
                     <ProfileStatCard colors={colors} stats={stats} />
                     <div className='w-full flex flex-col gap-4'>
-  
+                        <TaskList />
                     </div>
                 </div>
             }
