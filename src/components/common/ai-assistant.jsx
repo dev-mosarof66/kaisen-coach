@@ -35,7 +35,7 @@ const AIAssistant = () => {
             )}
 
             {/* Main Button */}
-            <div className='size-16 rounded-full bg-linear-to-b from-blue-600 via-blue-600 to-purple-500 flex items-center justify-center active:scale-95 cursor-pointer'>
+            <div className='size-14 rounded-full bg-linear-to-b from-blue-600 via-blue-600 to-purple-500 flex items-center justify-center active:scale-95 cursor-pointer'>
                 <div className='text-2xl text-white'>
                     <LuSparkles />
                 </div>

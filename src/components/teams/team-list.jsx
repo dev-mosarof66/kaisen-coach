@@ -123,19 +123,19 @@ const matchResultColors = {
   blue: 'bg-blue-500'
 }
 
-const TeamList = () => {
+const TeamList = ({setShowModal}) => {
   return (
     <div className="w-full">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
         {teams.map((team) => (
-          <TeamCard key={team.id} team={team} />
+          <TeamCard key={team.id} team={team} setShowModal={setShowModal} />
         ))}
       </div>
     </div>
   )
 }
 
-const TeamCard = ({ team }) => {
+const TeamCard = ({ team, setShowModal }) => {
   const borderClass = borderColors[team.borderColor]
   const iconBgClass = iconBgColors[team.borderColor]
   const iconTextClass = iconTextColors[team.borderColor]
@@ -212,7 +212,7 @@ const TeamCard = ({ team }) => {
 
         {/* Action Buttons */}
         <div className="flex items-center gap-2 pt-2">
-          <PrimaryButton className='flex-1 bg-linear-to-br from-blue-500 via-blue-500 to-purple-500'>
+          <PrimaryButton className='flex-1 bg-linear-to-br from-blue-500 via-blue-500 to-purple-500' onClick={() => setShowModal(true)}>
             See Details
           </PrimaryButton>
 
