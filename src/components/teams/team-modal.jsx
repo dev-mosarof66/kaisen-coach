@@ -6,10 +6,12 @@ import { PrimaryButton } from '../common/button';
 import { useRouter } from 'next/navigation';
 
 
-const TeamModal = ({ showModal, setShowModal }) => {
+const TeamModal = ({ showModal, setShowModal, teamId }) => {
   const router = useRouter()
 
   if (!showModal) return null;
+
+  console.log(teamId);
 
 
   return (
@@ -90,18 +92,18 @@ const TeamModal = ({ showModal, setShowModal }) => {
               </div>
             </div>
             {/* player roaster  */}
-            <div className='w-full flex flex-col gap-2 border-b border-b-gray-800 pb-5'>
+            <div className='w-full flex flex-col text-sm text-gray-400 gap-2 border-b border-b-gray-800 pb-5'>
               <h2 className='text-gray-400 text-lg font-semibold'>18 Player Roaster</h2>
               <div className='w-full flex flex-col gap-2'>
-                <div className='w-full flex items-center justify-between text-sm text-gray-400'>
+                <div className='w-full flex items-center justify-between'>
                   <p>RW</p>
                   <p className='text-green-500'>12</p>
                 </div>
-                <div className='w-full flex items-center justify-between text-sm text-gray-400'>
+                <div className='w-full flex items-center justify-between'>
                   <p>MF</p>
                   <p className='text-amber-500'>3</p>
                 </div>
-                <div className='w-full flex items-center justify-between text-sm text-gray-400'>
+                <div className='w-full flex items-center justify-between'>
                   <p>FW</p>
                   <p className='text-red-500'>2</p>
                 </div>
@@ -112,9 +114,9 @@ const TeamModal = ({ showModal, setShowModal }) => {
           {/* button  */}
 
           <div className='w-full flex justify-center border-b border-b-gray-800 pb-6'>
-            <PrimaryButton onClick={() => router.push('/teams/team-details')} className='w-full flex items-center gap-6 bg-linear-to-br from-blue-500 via-blue-500 to-purple-500'>
+            <PrimaryButton onClick={() => router.push(`/teams/${teamId}`)} className='w-full flex items-center gap-6 bg-linear-to-br from-blue-500 via-blue-500 to-purple-500 group'>
               <p>Open Full Team Page</p>
-              <FaArrowRight />
+              <FaArrowRight className='group-hover:translate-x-2 transition-all duration-300'  />
             </PrimaryButton>
           </div>
 

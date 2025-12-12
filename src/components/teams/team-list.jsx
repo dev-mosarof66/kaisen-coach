@@ -212,7 +212,7 @@ const TeamCard = ({ team, setShowModal }) => {
 
         {/* Action Buttons */}
         <div className="flex items-center gap-2 pt-2">
-          <PrimaryButton className='flex-1 bg-linear-to-br from-blue-500 via-blue-500 to-purple-500' onClick={() => setShowModal(true)}>
+          <PrimaryButton className='flex-1 bg-linear-to-br from-blue-500 via-blue-500 to-purple-500' onClick={() => setShowModal(team.id)}>
             See Details
           </PrimaryButton>
 

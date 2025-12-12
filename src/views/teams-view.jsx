@@ -8,7 +8,7 @@ import TeamsTab from '@/components/teams/teams-tab'
 import React, { useState } from 'react'
 
 const TeamView = () => {
-    const [showModal, setShowModal] = useState(false);
+    const [showModal, setShowModal] = useState(null);
 
     return (
         <div className='w-full h-full flex flex-col gap-4 p-3 sm:p-4 relative'>
@@ -17,7 +17,7 @@ const TeamView = () => {
             <TeamsTab />
             <TeamList setShowModal={setShowModal} />
             <Pagination />
-            <TeamModal showModal={showModal} setShowModal={setShowModal} />
+            <TeamModal showModal={showModal} setShowModal={setShowModal} teamId={showModal} />
         </div>
     )
 }
