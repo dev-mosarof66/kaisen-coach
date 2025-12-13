@@ -59,13 +59,13 @@ const SideBar = ({ onClick }) => {
             setActiveItem(0)
         } else if (pathname === '/players' || pathname === '/add-player' || pathname === '/player-profile') {
             setActiveItem(1)
-        } else if (pathname === '/teams' || pathname === '/add-team' || pathname === '/team-profile') {
+        } else if (pathname === '/teams' || pathname === '/add-team' || pathname === '/team-profile' || pathname.includes('/teams')) {
             setActiveItem(2)
         }
         else if (pathname === '/matches' || pathname === '/add-match' || pathname === '/match-profile') {
             setActiveItem(3)
         }
-        else if (pathname === '/tasks' || pathname === '/add-task' || pathname === '/task-profile') {
+        else if (pathname === '/tasks' || pathname === '/add-task' || pathname === '/task-profile' || pathname.includes('/tasks')) {
             setActiveItem(4)
         }
         else if (pathname === '/reports' || pathname === '/add-report' || pathname === '/report-profile') {
